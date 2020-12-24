@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% comment %} {% static '../static/images' as baseUrl %} {% endcomment %}
+{% block css %}
+<link rel="stylesheet" href="{% static '../static/css/home.css' %}">
+{% endblock css %}
+{% block content %}
+<div class="torust">
+    <section class="sam">
+        <div>
+            <div>
+                {% for dest in dests %}
+                <img src="{{dest.img.url}}" alt="loading..." height="300px" width="300px">
+                <p>{{dest.name}}</p>
+                <p>{{dest.desc}}</p>
+                <p>{{dest.price}}</p>
+                <p>{{dest.name}}</p>
+                {% if dest.offer %}
+                <p>special offer save 50%</p>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        
+    </section>
+</div>
+{% endblock content %}
